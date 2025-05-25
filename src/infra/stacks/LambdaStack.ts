@@ -26,6 +26,16 @@ export class LambdaStack extends Stack {
 			},
 		});
 
+		// Granting the Lambda function permissions to access the DynamoDB table
+
+		spacesLambda.addToRolePolicy(
+			new PolicyStatement({
+				effect: Effect.ALLOW,
+				resources: [props.spacesTableName.tableArn],
+				actions: ['dynamodb:PutItem'],
+			})
+		);
+
 		this.spacesLambdaIntegration = new LambdaIntegration(spacesLambda);
 	}
 }

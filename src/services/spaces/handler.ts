@@ -1,7 +1,11 @@
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
+import { postSpaces } from './PostSpaces';
 
 // APIGatewayProxyEvent is the type for the event parameter because if this handler is accessed via API Gateway
 // Context is the type for the context parameter because it contains information about the invocation, function, and execution environment
+
+const dynamodbClient = new DynamoDBClient({});
 
 async function handler(event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> {
 	try {
@@ -12,8 +16,8 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
 				message = 'Hello from the GET serverless function!';
 				break;
 			case 'POST':
-				message = 'Hello from the POST serverless function!';
-				break;
+				const response = await postSpaces(event, dynamodbClient);
+				return response;
 			default:
 				break;
 		}
@@ -27,7 +31,13 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
 
 		return response;
 	} catch (err) {
-		console.log('Error', err);
+		return {
+			statusCode: 500,
+			body: JSON.stringify({
+				message: 'An error occurred',
+				error: (err as Error).message,
+			}),
+		};
 	}
 }
 
