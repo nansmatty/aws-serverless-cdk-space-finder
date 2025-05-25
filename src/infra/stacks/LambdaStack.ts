@@ -32,7 +32,7 @@ export class LambdaStack extends Stack {
 			new PolicyStatement({
 				effect: Effect.ALLOW,
 				resources: [props.spacesTableName.tableArn],
-				actions: ['dynamodb:PutItem', 'dynamodb:Scan'],
+				actions: ['dynamodb:PutItem', 'dynamodb:Scan', 'dynamodb:GetItem'],
 			})
 		);
 

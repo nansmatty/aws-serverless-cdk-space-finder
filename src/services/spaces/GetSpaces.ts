@@ -36,23 +36,12 @@ export async function getSpaces(event: APIGatewayProxyEvent, ddbClient: DynamoDB
 		})
 	);
 
-	if (!result.Items) {
-		console.log('No spaces found');
-
-		return {
-			statusCode: 404,
-			body: JSON.stringify({
-				message: 'No spaces found',
-			}),
-		};
-	}
-
 	console.log(result.Items);
 
 	return {
-		statusCode: 200,
+		statusCode: result.Items ? 200 : 404,
 		body: JSON.stringify({
-			result: result.Items,
+			result: result.Items ? result.Items : 'No spaces found',
 		}),
 	};
 }
