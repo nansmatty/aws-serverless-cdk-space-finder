@@ -14,7 +14,7 @@
       ],
       "env": {
         "AWS_REGION": "ap-south-1",
-        "TABLE_NAME": "SpaceStack-02ca41ab5897"
+        "SPACES_TABLE_NAME": "SpaceStack-02ca41ab5897"
       }
     }
   ]

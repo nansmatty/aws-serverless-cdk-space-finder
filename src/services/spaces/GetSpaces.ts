@@ -39,7 +39,7 @@ export async function getSpaces(event: APIGatewayProxyEvent, ddbClient: DynamoDB
 
 	const unmarshalledItems = result.Items.map((item) => unmarshall(item));
 
-	console.log(result.Items);
+	console.log(unmarshalledItems);
 
 	return {
 		statusCode: result.Items ? 200 : 404,
