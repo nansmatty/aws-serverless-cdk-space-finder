@@ -3,6 +3,7 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda
 import { postSpaces } from './PostSpaces';
 import { getSpaces } from './GetSpaces';
 import { updateSpaces } from './UpdateSpace';
+import { deleteSpace } from './DeleteSpace';
 
 // APIGatewayProxyEvent is the type for the event parameter because if this handler is accessed via API Gateway
 // Context is the type for the context parameter because it contains information about the invocation, function, and execution environment
@@ -23,6 +24,9 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
 			case 'PUT':
 				const updatedResponse = await updateSpaces(event, dynamodbClient);
 				return updatedResponse;
+			case 'DELETE':
+				const deleteResponse = await deleteSpace(event, dynamodbClient);
+				return deleteResponse;
 			default:
 				break;
 		}

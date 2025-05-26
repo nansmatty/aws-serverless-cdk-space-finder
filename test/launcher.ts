@@ -5,13 +5,13 @@ process.env.SPACES_TABLE_NAME = 'SpaceStack-02ca41ab5897';
 
 handler(
 	{
-		httpMethod: 'PUT',
+		httpMethod: 'DELETE',
 		queryStringParameters: {
-			id: 'eb8d0f31-07f2-428d-aa58-483c77157642', // Example space ID
+			id: '55d0c9ae-5c3b-48b1-bdf4-f94559c2cbcb', // Example space ID
 		},
-		body: JSON.stringify({
-			location: 'Paris',
-		}),
+		// body: JSON.stringify({
+		// 	location: 'Paris',
+		// }),
 	} as any,
 	{} as any
 )
