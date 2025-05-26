@@ -7,10 +7,10 @@ handler(
 	{
 		httpMethod: 'PUT',
 		queryStringParameters: {
-			id: '444f7c7c-e469-424d-84e9-c25e1dae0429', // Example space ID
+			id: 'eb8d0f31-07f2-428d-aa58-483c77157642', // Example space ID
 		},
 		body: JSON.stringify({
-			location: 'Kyiv',
+			location: 'Paris',
 		}),
 	} as any,
 	{} as any
