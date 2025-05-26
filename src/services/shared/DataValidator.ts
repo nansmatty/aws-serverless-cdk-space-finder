@@ -6,6 +6,12 @@ export class MissingFieldError extends Error {
 	}
 }
 
+export class JSONParseError extends Error {
+	constructor(message: string) {
+		super(`JSON parse error: ${message}`);
+	}
+}
+
 export function validateSpaceEntry(arg: any) {
 	if ((arg as SpaceEntry).location == undefined) {
 		throw new MissingFieldError('location');

@@ -14,7 +14,7 @@
 		"url": "git+https://github.com/nansmatty/aws-serverless-cdk-space-finder.git"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "Narayan Maaity",
 	"license": "ISC",
 	"type": "commonjs",
 	"bugs": {
@@ -34,7 +34,6 @@
 	"dependencies": {
 		"@aws-sdk/client-dynamodb": "^3.817.0",
 		"@aws-sdk/client-s3": "^3.816.0",
-		"@aws-sdk/util-dynamodb": "^3.817.0",
-		"uuid": "^11.1.0"
+		"@aws-sdk/util-dynamodb": "^3.817.0"
 	}
 }
