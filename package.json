@@ -1,29 +1,40 @@
 {
-  "name": "space-finder",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
-    "@types/aws-lambda": "^8.10.149",
-    "@types/node": "^22.15.21",
-    "aws-cdk": "^2.1016.1",
-    "aws-cdk-lib": "^2.197.0",
-    "constructs": "^10.4.2",
-    "esbuild": "^0.25.4",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.817.0",
-    "@aws-sdk/client-s3": "^3.816.0",
-    "@aws-sdk/util-dynamodb": "^3.817.0",
-    "uuid": "^11.1.0"
-  }
+	"name": "space-finder",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nansmatty/aws-serverless-cdk-space-finder.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"bugs": {
+		"url": "https://github.com/nansmatty/aws-serverless-cdk-space-finder/issues"
+	},
+	"homepage": "https://github.com/nansmatty/aws-serverless-cdk-space-finder#readme",
+	"devDependencies": {
+		"@types/aws-lambda": "^8.10.149",
+		"@types/node": "^22.15.21",
+		"aws-cdk": "^2.1016.1",
+		"aws-cdk-lib": "^2.197.0",
+		"constructs": "^10.4.2",
+		"esbuild": "^0.25.4",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.8.3"
+	},
+	"dependencies": {
+		"@aws-sdk/client-dynamodb": "^3.817.0",
+		"@aws-sdk/client-s3": "^3.816.0",
+		"@aws-sdk/util-dynamodb": "^3.817.0",
+		"uuid": "^11.1.0"
+	}
 }
