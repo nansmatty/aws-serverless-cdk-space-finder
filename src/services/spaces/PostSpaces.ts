@@ -9,6 +9,12 @@ export async function postSpaces(event: APIGatewayProxyEvent, ddbClient: DynamoD
 
 	item.id = randomId;
 
+	//without marshalling, the item will look like this:
+	// Item: {
+	// 	id: { S: randomId },
+	// 	location: { S: item.location },
+	// },
+
 	const result = await ddbClient.send(
 		new PutItemCommand({
 			TableName: process.env.SPACES_TABLE_NAME || '',
