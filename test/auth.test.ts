@@ -3,10 +3,16 @@ import { AuthService } from './AuthService';
 async function testAuthService() {
 	const service = new AuthService();
 
-	const loginResponse = await service.login('nansmatty', 'Nans@0312');
+	await service.login('nansmatty', 'Nans@0312');
 
 	const idToken = await service.getIdToken();
-	// console.log('Login Response:', loginResponse);
+	console.log('ID Token:', idToken);
 }
 
-testAuthService();
+testAuthService()
+	.then(() => {
+		console.log('Authentication test completed successfully.');
+	})
+	.catch((error) => {
+		console.error('Error during authentication test:', error);
+	});

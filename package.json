@@ -7,7 +7,8 @@
 		"test": "test"
 	},
 	"scripts": {
-		"test": "ts-node test/launcher.ts"
+		"test:launcher": "ts-node test/launcher.ts",
+		"test:auth": "ts-node test/auth.test.ts"
 	},
 	"repository": {
 		"type": "git",
