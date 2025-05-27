@@ -1,4 +1,4 @@
-import { APIGatewayProxyEvent } from 'aws-lambda';
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { JSONParseError } from './DataValidator';
 import { randomUUID } from 'crypto';
 
@@ -20,4 +20,13 @@ export function hasAdminGroup(event: APIGatewayProxyEvent) {
 		return (groups as string).includes('SpaceAdmins');
 	}
 	return false;
+}
+
+export function addCorsHeader(arg: APIGatewayProxyResult) {
+	if (!arg.headers) {
+		arg.headers = {};
+	}
+
+	arg.headers['Access-Control-Allow-Origin'] = '*';
+	arg.headers['Access-Control-Allow-Methods'] = '*';
 }

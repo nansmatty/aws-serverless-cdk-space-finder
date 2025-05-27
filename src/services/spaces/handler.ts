@@ -5,6 +5,7 @@ import { getSpaces } from './GetSpaces';
 import { updateSpaces } from './UpdateSpace';
 import { deleteSpace } from './DeleteSpace';
 import { JSONParseError, MissingFieldError } from '../shared/DataValidator';
+import { addCorsHeader } from '../shared/Utils';
 
 // APIGatewayProxyEvent is the type for the event parameter because if this handler is accessed via API Gateway
 // Context is the type for the context parameter because it contains information about the invocation, function, and execution environment
@@ -13,32 +14,30 @@ const dynamodbClient = new DynamoDBClient({});
 
 async function handler(event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> {
 	try {
-		let message: string;
+		let response: APIGatewayProxyResult;
 
 		switch (event.httpMethod) {
 			case 'GET':
 				const getResponse = await getSpaces(event, dynamodbClient);
-				return getResponse;
+				response = getResponse;
+				break;
 			case 'POST':
 				const postResponse = await postSpaces(event, dynamodbClient);
-				return postResponse;
+				response = postResponse;
+				break;
 			case 'PUT':
 				const updatedResponse = await updateSpaces(event, dynamodbClient);
-				return updatedResponse;
+				response = updatedResponse;
+				break;
 			case 'DELETE':
 				const deleteResponse = await deleteSpace(event, dynamodbClient);
-				return deleteResponse;
+				response = deleteResponse;
+				break;
 			default:
 				break;
 		}
 
-		const response: APIGatewayProxyResult = {
-			statusCode: 200,
-			body: JSON.stringify({
-				message,
-			}),
-		};
-
+		addCorsHeader(response);
 		return response;
 	} catch (err) {
 		if (err instanceof MissingFieldError) {
