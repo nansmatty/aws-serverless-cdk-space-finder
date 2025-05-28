@@ -33,3 +33,6 @@ async function handler(event: APIGatewayProxyEvent, context: Context) {
 }
 
 export { handler };
+
+// This is the line needed to update the frontend code in cloudfront
+// aws cloudfront create-invalidation --distribution-id E15MUCPPIM7Q5L --paths "/*"
