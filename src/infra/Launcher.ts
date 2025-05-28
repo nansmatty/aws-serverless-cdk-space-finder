@@ -11,7 +11,9 @@ const lambdaStack = new LambdaStack(app, 'LambdaStack', {
 	spacesTableName: dataStack.spacesTable,
 });
 
-const authStack = new AuthStack(app, 'AuthStack');
+const authStack = new AuthStack(app, 'AuthStack', {
+	photosBucket: dataStack.photosBucket,
+});
 
 // Create the API stack, passing the Lambda integration and user pool from the other stacks for security and functionality
 
