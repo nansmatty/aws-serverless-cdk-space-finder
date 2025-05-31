@@ -9,6 +9,7 @@
 	"scripts": {
 		"test:launcher": "ts-node test/launcher.ts",
 		"test:auth": "ts-node test/auth.test.ts",
+		"test:sns": "ts-node test/monitor.test.ts",
 		"deploy": "cdk deploy --all --outputs-file outputs.json"
 	},
 	"repository": {
