@@ -5,7 +5,7 @@ const SNSEvent: SNSEvent = {
 	Records: [
 		{
 			Sns: {
-				Message: 'This is a test.',
+				Message: 'This is a test updated.',
 			},
 		},
 	],

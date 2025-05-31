@@ -7,12 +7,11 @@ async function testAuthService() {
 	const loginResult = await service.login('nansmatty', 'Nans@0312');
 
 	const idToken = await service.getIdToken();
-	// console.log('ID Token:', idToken);
+	console.log('ID Token:', idToken);
 
 	const credentials = await service.generateTemporaryCredentials();
 
-	const buckets = await listBuckets(credentials);
-	console.log(...buckets);
+	console.log({ credentials });
 }
 
 async function listBuckets(credentials: any) {
